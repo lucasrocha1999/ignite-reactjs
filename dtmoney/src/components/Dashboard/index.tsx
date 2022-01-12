@@ -2,7 +2,7 @@ import { Container } from "./styled";
 import { Summary } from "../Summary";
 import { TransactionsTable } from "../TransactionsTable";
 
-export function Dashboard () {
+export function Dashboard() {
   return (
     <Container>
       <Summary />

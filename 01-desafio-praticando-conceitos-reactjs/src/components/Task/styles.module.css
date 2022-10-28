@@ -37,6 +37,35 @@
     cursor: pointer;
 }
 
+.taskCheck:hover {
+    color: var(--blue-700);
+
+    transition: color 0.2s cubic-bezier(0.4, 0, 1, 1);
+}
+
+.checkIcon::before {
+    padding: 0 0.25rem;
+    content: "\2022";
+}
+
+.iconCheck {
+    min-width: 24px;
+    min-height: 24px;
+
+    border: 0;
+    border-radius: 50%;
+    line-height: 0;
+
+    background: transparent;
+    color: var(--purple-700);
+}
+
+.iconCheck:hover {
+    color: var(--purple-500);
+
+    transition: color 0.2s cubic-bezier(0.4, 0, 1, 1);
+}
+
 .deleteTask {
     border: 0;
     border-radius: 2px;
@@ -49,4 +78,10 @@
 .deleteTask:hover {
     color: var(--red-500);
     transition: color 0.2s cubic-bezier(0.4, 0, 1, 1);
+}
+
+.paragraphIsCompleted {
+    text-decoration: line-through;
+
+    color: var(--gray-300) !important;
 }

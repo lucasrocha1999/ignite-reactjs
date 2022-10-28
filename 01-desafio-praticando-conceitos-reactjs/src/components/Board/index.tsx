@@ -26,8 +26,6 @@ export function Board() {
       isCompleted: false,
     };
 
-    console.log(newTask);
-
     setTasks([...tasks, newTask]);
     setNewTaskText("");
   }
@@ -39,6 +37,24 @@ export function Board() {
 
   function handleNewTaskInvalid(event: InvalidEvent<HTMLInputElement>) {
     event.target.setCustomValidity("Este campo é obrigatório!");
+  }
+
+  function deleteTask(taskToDeleteId: string) {
+    const taskWithoutDeletedOne = tasks.filter((task) => {
+      return task.id !== taskToDeleteId;
+    });
+
+    setTasks(taskWithoutDeletedOne);
+  }
+
+  function completeTask(taskToCompleteId: string) {
+    const newTasks = tasks.map((task) => {
+      return task.id === taskToCompleteId
+        ? { ...task, isCompleted: !task.isCompleted }
+        : task;
+    });
+
+    setTasks(newTasks);
   }
 
   return (
@@ -67,7 +83,14 @@ export function Board() {
       </header>
 
       {tasks.length ? (
-        tasks.map((task) => <Task key={task.id} task={task} />)
+        tasks.map((task) => (
+          <Task
+            key={task.id}
+            task={task}
+            onDeleteTask={deleteTask}
+            onCompleteTask={completeTask}
+          />
+        ))
       ) : (
         <NoHaveTask />
       )}

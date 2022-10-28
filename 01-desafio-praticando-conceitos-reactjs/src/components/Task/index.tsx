@@ -1,27 +1,27 @@
 import { CheckCircle, Circle, Trash } from "phosphor-react";
 import styles from "./styles.module.css";
 
-const newTask = {
-  id: 1,
-  content:
-    "Integer urna interdum massa libero auctor neque turpis turpis semper. Duis vel sed fames integer.",
-  complete: false,
-};
+interface TaskProps {
+  task: Task;
+}
 
-export function Task() {
+interface Task {
+  id: string;
+  title: string;
+  isCompleted: boolean;
+}
+
+export function Task({ task }: TaskProps) {
   return (
     <section className={styles.task}>
       <button className={styles.taskCheck}>
-        {newTask.complete ? (
+        {task.isCompleted ? (
           <CheckCircle className={styles.iconCheck} size={24} />
         ) : (
           <Circle size={24} />
         )}
       </button>
-      <p>
-        Integer urna interdum massa libero auctor neque turpis turpis semper.
-        Duis vel sed fames integer.
-      </p>
+      <p>{task.title}</p>
       <button className={styles.deleteTask}>
         <Trash size={24} />
       </button>

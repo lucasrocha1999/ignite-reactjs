@@ -17,6 +17,10 @@ export function Board() {
   const [tasks, setTasks] = useState<Tasks[]>([]);
   const [newTaskText, setNewTaskText] = useState("");
 
+  const numberOfCompletedTasks = tasks.filter(
+    (task) => task.isCompleted === true
+  ).length;
+
   function handleCreateNewTask(event: FormEvent) {
     event.preventDefault();
 
@@ -75,10 +79,13 @@ export function Board() {
 
       <header className={styles.header}>
         <p className={styles.createdTasks}>
-          Tarefas criadas <strong>0</strong>
+          Tarefas criadas <strong>{tasks.length}</strong>
         </p>
         <p className={styles.completedTasks}>
-          Concluídas <strong>0</strong>
+          Concluídas{" "}
+          <strong>
+            {numberOfCompletedTasks} de {tasks.length}
+          </strong>
         </p>
       </header>
 

@@ -26,7 +26,7 @@ export function Home() {
             <option value="projeto 2" />
             <option value="projeto 3" />
           </datalist>
-          
+
           <label htmlFor="minutesAmount">durante</label>
           <MinutesAmountInput
             type="number"

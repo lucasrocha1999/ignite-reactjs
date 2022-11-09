@@ -1,7 +1,7 @@
 import { formatDistanceToNow } from 'date-fns'
 import { ptBR } from 'date-fns/locale'
 import { useContext } from 'react'
-import { CyclesContext } from '../../contexts/CyclesContext'
+import { CyclesContext } from '../../contexts/Cycles'
 import { HistoryContainer, HistoryList, Status } from './styles'
 
 export function History() {

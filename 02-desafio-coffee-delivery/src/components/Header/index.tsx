@@ -1,26 +1,37 @@
-import React from 'react';
-import { MapPin, ShoppingCart } from 'phosphor-react';
+import {
+  HeaderButton,
+  HeaderButtonsContainer,
+  HeaderContainer,
+} from "./styles";
 
-import LogoImage from '../../assets/images/logo.png';
+import coffeeLogoImg from "../../assets/coffee-delivery-logo.svg";
+import { MapPin, ShoppingCart } from "phosphor-react";
+import { NavLink } from "react-router-dom";
+import { useCart } from "../../hooks/useCart";
 
-import * as S from './styles';
+export function Header() {
+  const { cartQuantity } = useCart();
 
-export const Header: React.FC = () => {
   return (
-    <S.Container>
-        <div>
-            <img src={LogoImage} alt="logo" />
-        </div>
+    <HeaderContainer>
+      <div className="container">
+        <NavLink to="/">
+          <img src={coffeeLogoImg} />
+        </NavLink>
 
-        <S.Content>
-            <S.ButtonLocation>
-                <MapPin size={26} weight="fill" />
-                <span>Porto Alegre, RS</span>
-            </S.ButtonLocation>
-            <S.ButtonCart>
-                <ShoppingCart size={20} weight="fill" />
-            </S.ButtonCart>
-        </S.Content>
-    </S.Container>
+        <HeaderButtonsContainer>
+          <HeaderButton variant="purple">
+            <MapPin size={20} weight="fill" />
+            Porto Alegre, RS
+          </HeaderButton>
+          <NavLink to="/completeOrder">
+            <HeaderButton variant="yellow">
+              {cartQuantity >= 1 && <span>{cartQuantity}</span>}
+              <ShoppingCart size={20} weight="fill" />
+            </HeaderButton>
+          </NavLink>
+        </HeaderButtonsContainer>
+      </div>
+    </HeaderContainer>
   );
 }

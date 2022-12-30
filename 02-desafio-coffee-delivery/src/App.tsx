@@ -1,17 +1,21 @@
-import { ThemeProvider } from 'styled-components'
-import { Header } from './components/Header'
-import { GlobalStyle } from './styles/global'
-import { defaultTheme } from './styles/theme/default'
+import { BrowserRouter } from "react-router-dom";
+import { ThemeProvider } from "styled-components";
+import { CardContextProvider } from "./context/CartContext";
+import { Router } from "./Routes";
+import { defaultTheme } from "./styles/default";
+import { GlobalStyle } from "./styles/global";
 
 function App() {
-
   return (
     <ThemeProvider theme={defaultTheme}>
-      <Header />
-
       <GlobalStyle />
+      <BrowserRouter>
+        <CardContextProvider>
+          <Router />
+        </CardContextProvider>
+      </BrowserRouter>
     </ThemeProvider>
-  )
+  );
 }
 
-export default App
+export default App;

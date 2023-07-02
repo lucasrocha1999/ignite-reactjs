@@ -1,39 +1,34 @@
-import { createGlobalStyle } from "styled-components";
+import { createGlobalStyle } from 'styled-components'
 
 export const GlobalStyle = createGlobalStyle`
-  * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    outline: none
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:focus{
+  outline: none;
+  box-shadow: 0 0 0 2px ${(props) => props.theme.blue};
+}
+
+body{
+  background: ${(props) => props.theme['base-background']};
+  color: ${(props) => props.theme['base-text']};
+  -webkit-font-smoothing: antialiased;
+}
+
+body,input, textarea, button{
+  font-weight: 400;
+  font-size: 1.6rem;
+  font-family: 'Nunito', sans-serif;
+}
+button {
+  cursor: pointer;
+}
+
+html{
+    font-size: 62.5%;
   }
 
-  body {
-    background: ${({ theme }) => theme.colors["background"]};
-    color: ${({ theme }) => theme.colors.post};
-    -webkit-font-smoothing: antialiased;
-  }
-
-  body, input, button, textarea, button {
-    font-family: ${({ theme }) => theme.fonts.text};
-    font-weight: 400;
-    font-family: ${({ theme }) => theme.textSizes["text-regular-m"]};
-  }
-
-  button {
-    cursor: pointer;
-  }
-
-  a {
-    text-decoration: none;
-  }
-
-  input::-webkit-outer-spin-button,
-  input::-webkit-inner-spin-button {
-    -webkit-appearance: none;
-    margin: 0;
-  }
-  input[type="number"] {
-    -moz-appearance: textfield;
-  }
-`;
+`

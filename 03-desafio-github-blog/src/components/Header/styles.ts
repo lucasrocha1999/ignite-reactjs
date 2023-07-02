@@ -1,13 +1,11 @@
 import styled from 'styled-components'
 
-import HeaderBackground from '../../assets/headerBackground.png'
-
-export const Container = styled.div`
+export const HeaderContainer = styled.header`
+  height: 29.6rem;
   width: 100%;
-  height: 18.5rem;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background: url(${HeaderBackground}) no-repeat center;
+  background: url('/bg.png') no-repeat center;
   background-size: cover;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 `

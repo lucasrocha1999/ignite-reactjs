@@ -1,11 +1,9 @@
-import * as S from './styles'
-
-import Logo from '../../assets/logo.png'
-
-export function Header() {
+import { HeaderContainer } from './styles'
+import logoImg from '../../assets/logo.svg'
+export const Header = () => {
   return (
-    <S.Container>
-      <img src={Logo} alt="" />
-    </S.Container>
+    <HeaderContainer>
+      <img src={logoImg} alt="" />
+    </HeaderContainer>
   )
 }
